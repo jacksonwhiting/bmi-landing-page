@@ -8,6 +8,7 @@ module.exports = {
 					"hdg-pri": "#253347",
 					"content-pri": "#5E6E85",
 					"accent-pri": "#FFFFFF",
+					"accent-sec": "#345ff6",
 				},
 			},
 			backgroundColor: {
@@ -25,12 +26,15 @@ module.exports = {
 			},
 			fontSize: {
 				hdgXL: ["4rem", "110%"],
-        hdgL: ["3rem", "110%"],
+        		hdgL: ["3rem", "110%"],
 				hdgM: ["1.5rem", "110%"],
 				hdgS: ["1.25rem", "110%"],
-				bodyM: ["1rem", "150%"],
+				bodyM: ["1rem", "170%"],
 				hdgS: [".875rem", "150%"],
 			},
+			boxShadow: {
+        '3xl': '15px 15px 50px -5px rgba(0, 0, 0, 0.6)',
+      	},
 		},
 	},
 	plugins: [

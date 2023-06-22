@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-      input[type=number] {
-         -moz-appearance: textfield;
+      hero-grid--mobile {
+         grid-template-rows: 2fr 1fr;
       }
-      input[type=number]:focus {
-         -moz-appearance: auto;
+
+      [type='radio']:checked, [type='radio']:focus{
+         background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='rgb(52, 95, 246)' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3.5'/%3e%3c/svg%3e");
       }
+
+      .test {
+         background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='rgb(52, 95, 246)' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3.5'/%3e%3c/svg%3e");
+      }
+         
 }
