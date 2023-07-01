@@ -23,15 +23,18 @@
 		<link rel="stylesheet" href="./dist/output.css" />
 	</head>
 
-	<body class="font-inter text-skin-content-pri text-bodyM font-thin">
+	<body class="font-inter text-skin-content-pri text-bodyM">
 		<main class="mb-24">
-			<header class="">
-				<!-- test group -->
+			<header>
+				<!-- Sets up a grid for xl screen sizes with two columns -->
 				<div
 					class="mb-24 xl:grid xl:grid-cols-[4fr_2fr] xl:grid-rows-[auto_1fr] xl:max-w-screen-2xl xl:mx-auto">
+					<!-- First column has a gradient background -->
 					<div
 						class="bg-gradient-to-br from-white to-[#D6E6FE] rounded-b-xl xl:px-8 xl:col-start-1 xl:row-start-1 xl:row-span-2"></div>
+					<!-- Second column has a white background -->
 					<div class="col-start-2 row-start-1 row-span-2"></div>
+					<!-- The following div is used for screen sizes below xl to give it's contents a gradient background -->
 					<div
 						class="xl:contents bg-gradient-to-br from-white to-[#D6E6FE] rounded-b-xl">
 						<div
@@ -67,7 +70,7 @@
 								class="relative flex flex-col max-w-[365px] md:max-w-[686px] mx-auto">
 								<div
 									class="absolute xl:relative bg-white -top-[360px] xl:top-0 p-8 rounded-xl max-w-[365px] md:max-w-[686px] xl:mx-auto md:mx-0 shadow-2xl shadow-[#D6E6FE]">
-									<form class="space-y-10" action="">
+									<form id="bmi-form" class="space-y-10" action="">
 										<h2
 											class="text-hdgM text-skin-hdg-pri font-semibold text-center md:text-left">
 											Enter Your Details Below
@@ -78,7 +81,7 @@
 													class="w-[31px] h-[31px] border-border-pri checked:text-[#D6E6FE] checked:ring-transparent"
 													type="radio"
 													id="radio-metric"
-													name="unit-measurements"
+													name="unitMeasurements"
 													checked
 													autocomplete="off"
 													value="metric" />
@@ -93,7 +96,7 @@
 													class="w-[31px] h-[31px] border-border-pri checked:text-[#D6E6FE] checked:ring-transparent"
 													type="radio"
 													id="radio-imperial"
-													name="unit-measurements"
+													name="unitMeasurements"
 													autocomplete="off"
 													value="imperial" />
 												<label
@@ -106,6 +109,7 @@
 
 										<!-- Metric Form with two full text fields (displays if metric radio button selected) -->
 										<div
+											id="metric-form-fields"
 											class="md:grid md:grid-cols-2 md:gap-4 text-left">
 											<div>
 												<label class="text-hdgS" for="height"
@@ -143,7 +147,7 @@
 
 										<!-- Imperial Form with four text fields (displays if imperial radio button selected) -->
 
-										<div class="hidden">
+										<div id="imperial-form-fields" class="hidden">
 											<div class="mt-4 text-left">
 												<label class="text-hdgS" for="height"
 													>Height</label
@@ -169,8 +173,8 @@
 														<input
 															class="w-full border-border-pri py-4 px-6 rounded-lg text-hdgM text-skin-hdg-pri font-semibold"
 															type="number"
-															id="height-ins"
-															name="heightIns" />
+															id="height-in"
+															name="heightIn" />
 													</div>
 												</div>
 											</div>
@@ -211,14 +215,17 @@
 										<div>
 											<p class="mb-4 font-bold">Your BMI is...</p>
 											<p
+												id="bmi-output"
 												class="text-hdgL font-semibold mb-6 md:mb-0">
-												22.0
+												0
 											</p>
 										</div>
 										<p class="font-extralight md:max-w-[270px]">
-											Your BMI suggests you’re a healthy weight. Your
-											ideal weight is between
-											<b class="font-bold">9st 6lbs - 12st 10lbs.</b>
+											<spam id="data-prompt"
+												>Enter data to see your ideal weight.</spam
+											>
+											<spam id="health-status"></spam>
+											<b id="ideal-weight" class="font-bold"></b>
 										</p>
 									</div>
 								</div>
@@ -241,7 +248,7 @@
 						class="text-hdgM xl:text-hdgL text-[2rem] font-semibold text-skin-hdg-pri">
 						What Your BMI Result Means
 					</h2>
-					<p class="mt-8 font-thin">
+					<p class="mt-8">
 						A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
 						Maintaining a healthy weight may lower your chances of
 						experiencing health issues later on, such as obesity and type
@@ -483,7 +490,7 @@
 				</div>
 			</section>
 		</main>
-		<script src="" async></script>
+		<script src="./main.js" type="module" async></script>
 		<!-- May use defer instead of async in script tag -->
 	</body>
 </html>
